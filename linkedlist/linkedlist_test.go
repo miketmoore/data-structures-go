@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/miketmoore/data-structures-go/linkedlist"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestNewList(t *testing.T) {
@@ -452,7 +451,7 @@ func TestSet(t *testing.T) {
 		list := newList(1, 2, 3)
 
 		success := list.Set(2, &linkedlist.Node{Value: 100})
-		assert.Equal(t, true, success)
+		ok(t, success)
 		assertListNodes(t, list, 1, 2, 100)
 	})
 }
