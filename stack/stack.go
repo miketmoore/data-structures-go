@@ -1,6 +1,6 @@
 package stack
 
-import "github.com/miketmoore/linked-list-go/linkedlist"
+import "github.com/miketmoore/data-structures-go/linkedlist"
 
 // Stack is an adapter on top of LinkedList
 // It enforces the last-in first-out (LIFO) principle.

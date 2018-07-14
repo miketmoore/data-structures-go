@@ -1,11 +1,10 @@
 package stack_test
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/miketmoore/linked-list-go/linkedlist"
-	"github.com/miketmoore/stack-go/stack"
+	"github.com/miketmoore/data-structures-go/linkedlist"
+	"github.com/miketmoore/data-structures-go/stack"
 )
 
 func TestNew(t *testing.T) {
@@ -31,7 +30,6 @@ func TestIntegration(t *testing.T) {
 	ok(t, s.IsEmpty())
 
 	node = s.Peek()
-	fmt.Println(node)
 	ok(t, node == nil)
 
 	s.Push(&linkedlist.Node{Value: 100})

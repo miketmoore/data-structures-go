@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/miketmoore/linked-list-go/linkedlist"
+	"github.com/miketmoore/data-structures-go/linkedlist"
 	"github.com/stretchr/testify/assert"
 )
 

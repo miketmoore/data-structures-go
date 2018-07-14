@@ -3,8 +3,8 @@ package queue_test
 import (
 	"testing"
 
-	"github.com/miketmoore/linked-list-go/linkedlist"
-	"github.com/miketmoore/queue-go/queue"
+	"github.com/miketmoore/data-structures-go/linkedlist"
+	"github.com/miketmoore/data-structures-go/queue"
 )
 
 func TestNew(t *testing.T) {

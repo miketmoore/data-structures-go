@@ -1,7 +1,7 @@
 package queue
 
 import (
-	"github.com/miketmoore/linked-list-go/linkedlist"
+	"github.com/miketmoore/data-structures-go/linkedlist"
 )
 
 // Queue represents the FIFO (first in, first out) principle
