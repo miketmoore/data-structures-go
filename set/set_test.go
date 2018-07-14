@@ -145,6 +145,25 @@ func TestSubset(t *testing.T) {
 	})
 }
 
+func TestDifferenceInt(t *testing.T) {
+	a := set.NewInt()
+	a.AddInt(1)
+	a.AddInt(2)
+	a.AddInt(3)
+
+	b := set.NewInt()
+	b.AddInt(2)
+	b.AddInt(3)
+	b.AddInt(4)
+
+	c := set.DifferenceInt(a, b)
+	ok(t, c.Size() == 2)
+	ok(t, c.HasInt(1))
+	ok(t, !c.HasInt(2))
+	ok(t, !c.HasInt(3))
+	ok(t, c.HasInt(4))
+}
+
 func ok(t *testing.T, v bool) {
 	if v == false {
 		t.Fatal("not ok")

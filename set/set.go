@@ -75,3 +75,19 @@ func IntersectionInt(a, b SetInt) SetInt {
 	})
 	return s
 }
+
+// DifferenceInt returns the difference between the two sets as a new set
+func DifferenceInt(a, b SetInt) SetInt {
+	s := NewInt()
+	a.IterateInt(func(v int) {
+		if !b.HasInt(v) {
+			s.AddInt(v)
+		}
+	})
+	b.IterateInt(func(v int) {
+		if !a.HasInt(v) {
+			s.AddInt(v)
+		}
+	})
+	return s
+}
