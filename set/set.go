@@ -41,6 +41,21 @@ func (s *SetInt) IterateInt(cb func(int)) {
 	}
 }
 
+// SubsetInt tests if the specified set is a subset
+func (s *SetInt) SubsetInt(b SetInt) bool {
+	if s.Size() == 0 || b.Size() == 0 {
+		return false
+	}
+	allMatch := true
+	b.IterateInt(func(i int) {
+		if !s.HasInt(i) {
+			allMatch = false
+		}
+	})
+
+	return allMatch
+}
+
 // UnionInt combines any number of sets into a new set
 func UnionInt(sets ...SetInt) SetInt {
 	s := NewInt()

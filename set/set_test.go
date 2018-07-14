@@ -3,7 +3,7 @@ package set_test
 import (
 	"testing"
 
-	"github.com/miketmoore/set-go/set"
+	"github.com/miketmoore/data-structures-go/set"
 )
 
 func TestIntegration(t *testing.T) {
@@ -89,6 +89,60 @@ func TestIntersection(t *testing.T) {
 	ok(t, c.HasInt(2))
 	ok(t, c.HasInt(3))
 	ok(t, !c.HasInt(4))
+}
+
+func TestSubset(t *testing.T) {
+	t.Run("success", func(t *testing.T) {
+		a := set.NewInt()
+		a.AddInt(1)
+		a.AddInt(2)
+		a.AddInt(3)
+
+		b := set.NewInt()
+		b.AddInt(2)
+		b.AddInt(3)
+
+		isSubset := a.SubsetInt(b)
+		ok(t, isSubset)
+	})
+	t.Run("failure", func(t *testing.T) {
+		a := set.NewInt()
+		a.AddInt(1)
+		a.AddInt(2)
+		a.AddInt(3)
+
+		b := set.NewInt()
+		a.AddInt(1)
+		b.AddInt(2)
+		b.AddInt(3)
+		b.AddInt(4)
+
+		isSubset := a.SubsetInt(b)
+		ok(t, !isSubset)
+	})
+	t.Run("failure - both empty", func(t *testing.T) {
+		a := set.NewInt()
+		b := set.NewInt()
+
+		isSubset := a.SubsetInt(b)
+		ok(t, !isSubset)
+	})
+	t.Run("failure - a empty", func(t *testing.T) {
+		a := set.NewInt()
+		b := set.NewInt()
+		b.AddInt(1)
+
+		isSubset := a.SubsetInt(b)
+		ok(t, !isSubset)
+	})
+	t.Run("failure - b empty", func(t *testing.T) {
+		a := set.NewInt()
+		a.AddInt(1)
+		b := set.NewInt()
+
+		isSubset := a.SubsetInt(b)
+		ok(t, !isSubset)
+	})
 }
 
 func ok(t *testing.T, v bool) {
